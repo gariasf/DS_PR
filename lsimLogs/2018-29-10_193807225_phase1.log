@@ -1,0 +1,562 @@
+29-10-2018 19:38:07:225 phase1 [INFO] : List of users: [user0, user1, user2, user3, user4]
+29-10-2018 19:38:10:244 phase1 [INFO] : List of operations:
+[AddOperation [recipe=[ftyqqryp, Content--ftyqqryp, user0], timestamp=user0:   0], AddOperation [recipe=[vgrxismv, Content--vgrxismv, user2], timestamp=user2:   0], AddOperation [recipe=[mrtsccko, Content--mrtsccko, user1], timestamp=user1:   0], AddOperation [recipe=[mtxhcsxk, Content--mtxhcsxk, user4], timestamp=user4:   0], AddOperation [recipe=[igutjmas, Content--igutjmas, user2], timestamp=user2:   1], AddOperation [recipe=[enwxuoaq, Content--enwxuoaq, user2], timestamp=user2:   2], AddOperation [recipe=[naenayif, Content--naenayif, user3], timestamp=user3:   0], AddOperation [recipe=[paqhlrar, Content--paqhlrar, user3], timestamp=user3:   1], AddOperation [recipe=[guimxcvn, Content--guimxcvn, user4], timestamp=user4:   1], AddOperation [recipe=[brqcmawf, Content--brqcmawf, user3], timestamp=user3:   2], AddOperation [recipe=[wvfvcioe, Content--wvfvcioe, user0], timestamp=user0:   1], AddOperation [recipe=[jdpmsrot, Content--jdpmsrot, user4], timestamp=user4:   2], AddOperation [recipe=[bycjuiap, Content--bycjuiap, user2], timestamp=user2:   3], AddOperation [recipe=[prrrbyyq, Content--prrrbyyq, user4], timestamp=user4:   3], AddOperation [recipe=[ayxlnxfj, Content--ayxlnxfj, user0], timestamp=user0:   2], AddOperation [recipe=[fbybqmkf, Content--fbybqmkf, user1], timestamp=user1:   1], AddOperation [recipe=[clibbrbl, Content--clibbrbl, user2], timestamp=user2:   4], AddOperation [recipe=[qycxccpi, Content--qycxccpi, user1], timestamp=user1:   2], AddOperation [recipe=[jeqkicvn, Content--jeqkicvn, user0], timestamp=user0:   3], AddOperation [recipe=[gsktxxsh, Content--gsktxxsh, user1], timestamp=user1:   3], AddOperation [recipe=[nhmswiev, Content--nhmswiev, user4], timestamp=user4:   4], AddOperation [recipe=[gjtvehkq, Content--gjtvehkq, user0], timestamp=user0:   4], AddOperation [recipe=[rlretsfx, Content--rlretsfx, user2], timestamp=user2:   5], AddOperation [recipe=[hnsfjsrm, Content--hnsfjsrm, user0], timestamp=user0:   5], AddOperation [recipe=[dtuaotah, Content--dtuaotah, user4], timestamp=user4:   5], AddOperation [recipe=[vqkrfrdd, Content--vqkrfrdd, user2], timestamp=user2:   6], AddOperation [recipe=[hlvdoryn, Content--hlvdoryn, user1], timestamp=user1:   4], AddOperation [recipe=[srhvddam, Content--srhvddam, user2], timestamp=user2:   7], AddOperation [recipe=[jfyqttss, Content--jfyqttss, user4], timestamp=user4:   6], AddOperation [recipe=[tustxmqr, Content--tustxmqr, user0], timestamp=user0:   6], AddOperation [recipe=[vribeukc, Content--vribeukc, user3], timestamp=user3:   3], AddOperation [recipe=[xakmtotn, Content--xakmtotn, user4], timestamp=user4:   7], AddOperation [recipe=[skotncrs, Content--skotncrs, user2], timestamp=user2:   8], AddOperation [recipe=[tluqowex, Content--tluqowex, user2], timestamp=user2:   9], AddOperation [recipe=[lupjjovh, Content--lupjjovh, user3], timestamp=user3:   4], AddOperation [recipe=[qbmyxmeo, Content--qbmyxmeo, user3], timestamp=user3:   5], AddOperation [recipe=[ooqduvgv, Content--ooqduvgv, user4], timestamp=user4:   8], AddOperation [recipe=[hauelsfc, Content--hauelsfc, user1], timestamp=user1:   5], AddOperation [recipe=[jvuacyfw, Content--jvuacyfw, user3], timestamp=user3:   6], AddOperation [recipe=[kpetxjqi, Content--kpetxjqi, user1], timestamp=user1:   6], AddOperation [recipe=[fdfyucma, Content--fdfyucma, user2], timestamp=user2:   10], AddOperation [recipe=[lvckthrq, Content--lvckthrq, user4], timestamp=user4:   9], AddOperation [recipe=[booxoevo, Content--booxoevo, user3], timestamp=user3:   7], AddOperation [recipe=[pytljyec, Content--pytljyec, user4], timestamp=user4:   10], AddOperation [recipe=[cefxgrfy, Content--cefxgrfy, user3], timestamp=user3:   8], AddOperation [recipe=[nikvppdg, Content--nikvppdg, user3], timestamp=user3:   9], AddOperation [recipe=[phmfgbsu, Content--phmfgbsu, user3], timestamp=user3:   10], AddOperation [recipe=[fewjqkrh, Content--fewjqkrh, user3], timestamp=user3:   11], AddOperation [recipe=[yjcaeuhb, Content--yjcaeuhb, user1], timestamp=user1:   7], AddOperation [recipe=[roppuwew, Content--roppuwew, user4], timestamp=user4:   11]]
+29-10-2018 19:38:10:248 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[ftyqqryp, Content--ftyqqryp, user0], timestamp=user0:   0]
+29-10-2018 19:38:10:251 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:252 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user0:   0
+29-10-2018 19:38:10:253 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:255 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[vgrxismv, Content--vgrxismv, user2], timestamp=user2:   0]
+29-10-2018 19:38:10:256 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:257 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user2:   0
+29-10-2018 19:38:10:258 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:259 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[mrtsccko, Content--mrtsccko, user1], timestamp=user1:   0]
+29-10-2018 19:38:10:260 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:261 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user1:   0
+29-10-2018 19:38:10:263 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:264 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[mtxhcsxk, Content--mtxhcsxk, user4], timestamp=user4:   0]
+29-10-2018 19:38:10:265 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:266 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user4:   0
+29-10-2018 19:38:10:268 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:269 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[igutjmas, Content--igutjmas, user2], timestamp=user2:   1]
+29-10-2018 19:38:10:270 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:271 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user2:   1
+29-10-2018 19:38:10:272 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:273 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[enwxuoaq, Content--enwxuoaq, user2], timestamp=user2:   2]
+29-10-2018 19:38:10:274 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:276 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user2:   2
+29-10-2018 19:38:10:277 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:278 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[naenayif, Content--naenayif, user3], timestamp=user3:   0]
+29-10-2018 19:38:10:279 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:280 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user3:   0
+29-10-2018 19:38:10:281 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:282 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[paqhlrar, Content--paqhlrar, user3], timestamp=user3:   1]
+29-10-2018 19:38:10:283 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:285 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user3:   1
+29-10-2018 19:38:10:286 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:287 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[guimxcvn, Content--guimxcvn, user4], timestamp=user4:   1]
+29-10-2018 19:38:10:288 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:289 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user4:   1
+29-10-2018 19:38:10:290 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:292 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[brqcmawf, Content--brqcmawf, user3], timestamp=user3:   2]
+29-10-2018 19:38:10:293 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:294 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user3:   2
+29-10-2018 19:38:10:295 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:297 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[wvfvcioe, Content--wvfvcioe, user0], timestamp=user0:   1]
+29-10-2018 19:38:10:298 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:299 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user0:   1
+29-10-2018 19:38:10:300 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:301 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[jdpmsrot, Content--jdpmsrot, user4], timestamp=user4:   2]
+29-10-2018 19:38:10:302 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:303 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user4:   2
+29-10-2018 19:38:10:304 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:305 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[bycjuiap, Content--bycjuiap, user2], timestamp=user2:   3]
+29-10-2018 19:38:10:306 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:307 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user2:   3
+29-10-2018 19:38:10:308 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:309 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[prrrbyyq, Content--prrrbyyq, user4], timestamp=user4:   3]
+29-10-2018 19:38:10:311 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:312 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user4:   3
+29-10-2018 19:38:10:313 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:314 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[ayxlnxfj, Content--ayxlnxfj, user0], timestamp=user0:   2]
+29-10-2018 19:38:10:315 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:316 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user0:   2
+29-10-2018 19:38:10:318 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:320 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[fbybqmkf, Content--fbybqmkf, user1], timestamp=user1:   1]
+29-10-2018 19:38:10:321 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:322 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user1:   1
+29-10-2018 19:38:10:323 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:325 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[clibbrbl, Content--clibbrbl, user2], timestamp=user2:   4]
+29-10-2018 19:38:10:326 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:327 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user2:   4
+29-10-2018 19:38:10:328 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:329 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[qycxccpi, Content--qycxccpi, user1], timestamp=user1:   2]
+29-10-2018 19:38:10:330 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:331 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user1:   2
+29-10-2018 19:38:10:332 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:333 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[jeqkicvn, Content--jeqkicvn, user0], timestamp=user0:   3]
+29-10-2018 19:38:10:334 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:335 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user0:   3
+29-10-2018 19:38:10:336 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:337 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[gsktxxsh, Content--gsktxxsh, user1], timestamp=user1:   3]
+29-10-2018 19:38:10:338 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:339 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user1:   3
+29-10-2018 19:38:10:340 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:341 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[nhmswiev, Content--nhmswiev, user4], timestamp=user4:   4]
+29-10-2018 19:38:10:342 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:343 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user4:   4
+29-10-2018 19:38:10:344 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:345 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[gjtvehkq, Content--gjtvehkq, user0], timestamp=user0:   4]
+29-10-2018 19:38:10:346 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:347 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user0:   4
+29-10-2018 19:38:10:349 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:350 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[rlretsfx, Content--rlretsfx, user2], timestamp=user2:   5]
+29-10-2018 19:38:10:351 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:352 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user2:   5
+29-10-2018 19:38:10:353 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:354 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[hnsfjsrm, Content--hnsfjsrm, user0], timestamp=user0:   5]
+29-10-2018 19:38:10:355 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:356 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user0:   5
+29-10-2018 19:38:10:357 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:358 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[dtuaotah, Content--dtuaotah, user4], timestamp=user4:   5]
+29-10-2018 19:38:10:359 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:360 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user4:   5
+29-10-2018 19:38:10:361 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:362 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[vqkrfrdd, Content--vqkrfrdd, user2], timestamp=user2:   6]
+29-10-2018 19:38:10:362 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:363 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user2:   6
+29-10-2018 19:38:10:365 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:366 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[hlvdoryn, Content--hlvdoryn, user1], timestamp=user1:   4]
+29-10-2018 19:38:10:367 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:368 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user1:   4
+29-10-2018 19:38:10:369 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:370 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[srhvddam, Content--srhvddam, user2], timestamp=user2:   7]
+29-10-2018 19:38:10:371 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:372 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user2:   7
+29-10-2018 19:38:10:373 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:374 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[jfyqttss, Content--jfyqttss, user4], timestamp=user4:   6]
+29-10-2018 19:38:10:375 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:376 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user4:   6
+29-10-2018 19:38:10:376 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:377 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[tustxmqr, Content--tustxmqr, user0], timestamp=user0:   6]
+29-10-2018 19:38:10:378 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:379 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user0:   6
+29-10-2018 19:38:10:380 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:381 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[vribeukc, Content--vribeukc, user3], timestamp=user3:   3]
+29-10-2018 19:38:10:382 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:383 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user3:   3
+29-10-2018 19:38:10:384 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:385 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[xakmtotn, Content--xakmtotn, user4], timestamp=user4:   7]
+29-10-2018 19:38:10:386 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:387 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user4:   7
+29-10-2018 19:38:10:388 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:389 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[skotncrs, Content--skotncrs, user2], timestamp=user2:   8]
+29-10-2018 19:38:10:390 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:391 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user2:   8
+29-10-2018 19:38:10:392 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:393 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[tluqowex, Content--tluqowex, user2], timestamp=user2:   9]
+29-10-2018 19:38:10:394 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:395 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user2:   9
+29-10-2018 19:38:10:396 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:397 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[lupjjovh, Content--lupjjovh, user3], timestamp=user3:   4]
+29-10-2018 19:38:10:398 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:399 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user3:   4
+29-10-2018 19:38:10:400 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:401 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[qbmyxmeo, Content--qbmyxmeo, user3], timestamp=user3:   5]
+29-10-2018 19:38:10:402 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:403 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user3:   5
+29-10-2018 19:38:10:404 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:405 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[ooqduvgv, Content--ooqduvgv, user4], timestamp=user4:   8]
+29-10-2018 19:38:10:406 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:406 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user4:   8
+29-10-2018 19:38:10:407 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:408 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[hauelsfc, Content--hauelsfc, user1], timestamp=user1:   5]
+29-10-2018 19:38:10:409 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:410 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user1:   5
+29-10-2018 19:38:10:411 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:412 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[jvuacyfw, Content--jvuacyfw, user3], timestamp=user3:   6]
+29-10-2018 19:38:10:413 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:414 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user3:   6
+29-10-2018 19:38:10:415 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:416 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[kpetxjqi, Content--kpetxjqi, user1], timestamp=user1:   6]
+29-10-2018 19:38:10:417 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:418 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user1:   6
+29-10-2018 19:38:10:419 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:420 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[fdfyucma, Content--fdfyucma, user2], timestamp=user2:   10]
+29-10-2018 19:38:10:421 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:421 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user2:   10
+29-10-2018 19:38:10:422 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:423 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[lvckthrq, Content--lvckthrq, user4], timestamp=user4:   9]
+29-10-2018 19:38:10:424 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:425 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user4:   9
+29-10-2018 19:38:10:426 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:427 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[booxoevo, Content--booxoevo, user3], timestamp=user3:   7]
+29-10-2018 19:38:10:428 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:429 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user3:   7
+29-10-2018 19:38:10:430 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:431 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[pytljyec, Content--pytljyec, user4], timestamp=user4:   10]
+29-10-2018 19:38:10:432 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:433 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user4:   10
+29-10-2018 19:38:10:434 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:434 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[cefxgrfy, Content--cefxgrfy, user3], timestamp=user3:   8]
+29-10-2018 19:38:10:435 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:436 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user3:   8
+29-10-2018 19:38:10:437 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:438 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[nikvppdg, Content--nikvppdg, user3], timestamp=user3:   9]
+29-10-2018 19:38:10:439 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:440 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user3:   9
+29-10-2018 19:38:10:441 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:442 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[phmfgbsu, Content--phmfgbsu, user3], timestamp=user3:   10]
+29-10-2018 19:38:10:443 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:444 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user3:   10
+29-10-2018 19:38:10:445 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:446 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[fewjqkrh, Content--fewjqkrh, user3], timestamp=user3:   11]
+29-10-2018 19:38:10:447 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:448 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user3:   11
+29-10-2018 19:38:10:449 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:450 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[yjcaeuhb, Content--yjcaeuhb, user1], timestamp=user1:   7]
+29-10-2018 19:38:10:451 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:452 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user1:   7
+29-10-2018 19:38:10:453 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:454 phase1 [TRACE] : Inserting into Log the operation: AddOperation [recipe=[roppuwew, Content--roppuwew, user4], timestamp=user4:   11]
+29-10-2018 19:38:10:455 phase1 [TRACE] : Log updated:
+
+29-10-2018 19:38:10:456 phase1 [TRACE] : Updating the TimestampVectorInserting with the timestamp: user4:   11
+29-10-2018 19:38:10:457 phase1 [TRACE] : Summary updated:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
+29-10-2018 19:38:10:458 phase1 [INFO] : Log:
+
+29-10-2018 19:38:10:459 phase1 [INFO] : Summary:
+user1:   -1000
+user2:   -1000
+user0:   -1000
+user3:   -1000
+user4:   -1000
+
