@@ -27,12 +27,16 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Semaphore;
 
 //LSim logging system imports sgeag@2017
 import edu.uoc.dpcs.lsim.LSimFactory;
 import edu.uoc.dpcs.lsim.logger.LoggerManager.Level;
 import lsim.worker.LSimWorker;
 import recipes_service.data.Operation;
+
+
+
 
 /**
  * @author Joan-Manuel Marques, Daniel Lázaro Iglesias
@@ -42,6 +46,8 @@ import recipes_service.data.Operation;
 public class Log implements Serializable{
 	// Needed for the logging system sgeag@2017
 	private transient LSimWorker lsim = LSimFactory.getWorkerInstance();
+	// Using java semaphores to limit concurrency at 1
+	private Semaphore available = new Semaphore(1);
 
 	private static final long serialVersionUID = -4864990265268259700L;
 	/**
@@ -69,13 +75,43 @@ public class Log implements Serializable{
 	 * @param op
 	 * @return true if op is inserted, false otherwise.
 	 */
-	public boolean add(Operation op){
+	public synchronized boolean add(Operation op){
 		lsim.log(Level.TRACE, "Inserting into Log the operation: "+op);
-		
-		// ....
-		
-		// return generated automatically. Remove it when implementing your solution 
-		return false;
+		try {
+			available.acquire();
+			
+			/** 
+			 * Getting the hostId and current timestamp 
+			 * to search the last submitted operation in order to 
+			 * then check whether the new operation is newer or not 
+			 */
+			Timestamp ts = op.getTimestamp();
+			String hostId = ts.getHostid();
+			
+			List<Operation> ops = log.get(hostId);
+			
+			if (ops.size() > 0) {
+				Operation lastOp = ops.get(ops.size() - 1);
+				
+				 /**
+		         * Check if the operation is the next to the newer one.
+		         * If it is, insert it to the log
+		         * If it isn't return false indicating that the add operation failed.
+		         */
+				if (ts.compare(lastOp.getTimestamp()) > 0) {
+					log.get(hostId).add(op);
+				} else{
+					return false;
+				}
+			} else {
+				log.get(hostId).add(op);
+			}
+	        return true;
+		} catch (InterruptedException e) {
+            return false;
+        } finally {
+            available.release();
+        }
 	}
 	
 	/**
@@ -86,10 +122,31 @@ public class Log implements Serializable{
 	 * @param sum
 	 * @return list of operations
 	 */
-	public List<Operation> listNewer(TimestampVector sum){
+	public synchronized List<Operation> listNewer(TimestampVector sum){
 		
-		// return generated automatically. Remove it when implementing your solution 
-		return null;
+		// Will store newer operations that are yet to be synced
+		List<Operation> nonAddedOps = new Vector<Operation>();
+
+        /**
+         * While iterating trough all the hosts available in the log,
+         * compare operation timestamps between the last logged op on the current host
+         * and the last logged op on the summary for that host.
+         * Any operation timestamp is smaller on the current host it will need to be updated from
+         * the summary and therefore will be added to the nonAdded list.
+         */
+
+        for (String node : this.log.keySet()) {
+            List<Operation> ops = this.log.get(node);
+            Timestamp lasHostTimestampOnSum = sum.getLast(node);
+
+            for (Operation op : ops) {
+                if (op.getTimestamp().compare(lasHostTimestampOnSum) > 1) {
+                	nonAddedOps.add(op);
+                }
+            }
+        }
+        
+        return nonAddedOps;
 	}
 	
 	/**
@@ -106,10 +163,29 @@ public class Log implements Serializable{
 	 * equals
 	 */
 	@Override
-	public boolean equals(Object obj) {
-		
-		// return generated automatically. Remove it when implementing your solution 
-		return false;
+	public synchronized boolean equals(Object obj) {
+		if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        
+        Log other = (Log) obj;
+        if (log == null) {
+            return other.log == null;
+        } else {
+            if (log.size() != other.log.size()){
+                return false;
+            }
+            boolean equal = true;
+            for (Iterator<String> it = log.keySet().iterator(); it.hasNext() && equal; ){
+                String hostName = it.next();
+                equal = log.get(hostName).equals(other.log.get(hostName));
+            }
+            
+            return equal;
+        }
 	}
 
 	/**
@@ -124,8 +200,7 @@ public class Log implements Serializable{
 		for(ListIterator<Operation> en2=sublog.listIterator(); en2.hasNext();){
 			name+=en2.next().toString()+"\n";
 		}
-	}
-		
+	}		
 		return name;
 	}
 }

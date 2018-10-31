@@ -21,9 +21,11 @@
 package recipes_service.tsae.data_structures;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 //LSim logging system imports sgeag@2017
@@ -56,23 +58,30 @@ public class TimestampVector implements Serializable{
 			timestampVector.put(id, new Timestamp(id, Timestamp.NULL_TIMESTAMP_SEQ_NUMBER));
 		}
 	}
-
+	
 	/**
 	 * Updates the timestamp vector with a new timestamp. 
 	 * @param timestamp
 	 */
-	public void updateTimestamp(Timestamp timestamp){
+	public synchronized void updateTimestamp(Timestamp timestamp){
 		lsim.log(Level.TRACE, "Updating the TimestampVectorInserting with the timestamp: "+timestamp);
 
-		// ...
 	
+	    this.timestampVector.replace(timestamp.getHostid(), timestamp);
 	}
 	
 	/**
 	 * merge in another vector, taking the elementwise maximum
 	 * @param tsVector (a timestamp vector)
 	 */
-	public void updateMax(TimestampVector tsVector){
+	public synchronized void updateMax(TimestampVector tsVector){
+		for (String node : this.timestampVector.keySet()) {
+            Timestamp lastLoggedOpForNode = tsVector.getLast(node);
+
+            if (this.getLast(node).compare(lastLoggedOpForNode) < 0) {
+                this.timestampVector.replace(node, lastLoggedOpForNode);
+            }
+        }
 	}
 	
 	/**
@@ -81,10 +90,8 @@ public class TimestampVector implements Serializable{
 	 * @return the last timestamp issued by node that has been
 	 * received.
 	 */
-	public Timestamp getLast(String node){
-		
-		// return generated automatically. Remove it when implementing your solution 
-		return null;
+	public synchronized Timestamp getLast(String node){
+		return this.timestampVector.get(node);
 	}
 	
 	/**
@@ -94,25 +101,47 @@ public class TimestampVector implements Serializable{
 	 *  @param tsVector (timestamp vector)
 	 */
 	public void mergeMin(TimestampVector tsVector){
+		 return;
 	}
 	
 	/**
 	 * clone
 	 */
-	public TimestampVector clone(){
-		
-		// return generated automatically. Remove it when implementing your solution 
-		return null;
+
+	public synchronized TimestampVector clone(){
+		List<String> participants = new ArrayList<String>(timestampVector.keySet());
+		TimestampVector clone = new TimestampVector(participants);
+
+		for (String key : timestampVector.keySet()) {
+			Timestamp timestamp = this.timestampVector.get(key);
+			clone.timestampVector.put(timestamp.getHostid(), timestamp);
+		}
+		return clone;
 	}
 	
 	/**
 	 * equals
 	 */
-	public boolean equals(Object obj){
-		
-		// return generated automatically. Remove it when implementing your solution 
-		return false;
-	}
+    public synchronized boolean equals(TimestampVector vector) {
+    	if (this == vector)
+			return true;
+		if (timestampVector == null) {
+			if (vector.timestampVector != null)
+				return false;
+			else
+				return true;
+		} else {
+			if (timestampVector.size() != vector.timestampVector.size()){
+				return false;
+			}
+			boolean equal = true;
+			for (Iterator<String> it = timestampVector.keySet().iterator(); it.hasNext() && equal; ){
+				String hostId = it.next();
+				equal = timestampVector.get(hostId).equals(vector.timestampVector.get(hostId));
+			}
+			return equal;
+		}
+    }
 
 	/**
 	 * toString
