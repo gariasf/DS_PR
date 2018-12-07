@@ -59,6 +59,10 @@ public class TimestampVector implements Serializable{
 		}
 	}
 	
+	 private TimestampVector(Map<String, Timestamp> timestampVector) {
+	        this.timestampVector = new ConcurrentHashMap<>(timestampVector);
+	    }
+	
 	/**
 	 * Updates the timestamp vector with a new timestamp. 
 	 * @param timestamp
@@ -75,10 +79,16 @@ public class TimestampVector implements Serializable{
 	 * @param tsVector (a timestamp vector)
 	 */
 	public synchronized void updateMax(TimestampVector tsVector){
+		if (tsVector == null) {
+            return;
+        }
+
 		for (String node : this.timestampVector.keySet()) {
             Timestamp lastLoggedOpForNode = tsVector.getLast(node);
-
-            if (this.getLast(node).compare(lastLoggedOpForNode) < 0) {
+            
+            if(lastLoggedOpForNode == null) {
+            	continue;
+            } else  if (this.getLast(node).compare(lastLoggedOpForNode) < 0) {
                 this.timestampVector.replace(node, lastLoggedOpForNode);
             }
         }
@@ -109,38 +119,32 @@ public class TimestampVector implements Serializable{
 	 */
 
 	public synchronized TimestampVector clone(){
-		List<String> participants = new ArrayList<String>(timestampVector.keySet());
-		TimestampVector clone = new TimestampVector(participants);
-
-		for (String key : timestampVector.keySet()) {
-			Timestamp timestamp = this.timestampVector.get(key);
-			clone.timestampVector.put(timestamp.getHostid(), timestamp);
-		}
-		return clone;
-	}
+		return new TimestampVector(this.timestampVector);	}
 	
-	/**
+	
+    public synchronized boolean equals(Object vector) {
+    	 if (vector == null) {
+             return false;
+         } else if (this == vector) {
+             return true;
+         } else if (!(vector instanceof TimestampVector)) {
+             return false;
+         }
+
+         return equals((TimestampVector) vector);
+    }
+    
+    /**
 	 * equals
 	 */
-    public synchronized boolean equals(TimestampVector vector) {
-    	if (this == vector)
-			return true;
-		if (timestampVector == null) {
-			if (vector.timestampVector != null)
-				return false;
-			else
-				return true;
-		} else {
-			if (timestampVector.size() != vector.timestampVector.size()){
-				return false;
-			}
-			boolean equal = true;
-			for (Iterator<String> it = timestampVector.keySet().iterator(); it.hasNext() && equal; ){
-				String hostId = it.next();
-				equal = timestampVector.get(hostId).equals(vector.timestampVector.get(hostId));
-			}
-			return equal;
-		}
+    public synchronized boolean equals(TimestampVector otherVector) {
+        if (this.timestampVector == otherVector.timestampVector) {
+            return true;
+        } else if (this.timestampVector == null || otherVector.timestampVector == null) {
+            return false;
+        } else {
+            return this.timestampVector.equals(otherVector.timestampVector);
+        }
     }
 
 	/**
