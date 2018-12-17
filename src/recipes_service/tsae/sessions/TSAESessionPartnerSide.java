@@ -86,6 +86,8 @@ public class TSAESessionPartnerSide extends Thread {
 				 */
 				synchronized (serverData) {
 					localSummary = serverData.getSummary().clone();
+					localAck = serverData.getAck().clone();
+
 				}
 
 				/**
@@ -156,6 +158,8 @@ public class TSAESessionPartnerSide extends Thread {
 						}
 
 						serverData.getSummary().updateMax(aeRequestMsg.getSummary());
+						serverData.getAck().updateMax(aeRequestMsg.getAck());
+						serverData.getLog().purgeLog(serverData.getAck());
 					}
 
 					msg.setSessionNumber(current_session_number);

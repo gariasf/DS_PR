@@ -59,7 +59,7 @@ public class TimestampVector implements Serializable {
 	}
 
 	private TimestampVector(Map<String, Timestamp> timestampVector) {
-		this.timestampVector = new ConcurrentHashMap<>(timestampVector);
+		this.timestampVector = new ConcurrentHashMap<String, Timestamp>(timestampVector);
 	}
 
 	/**

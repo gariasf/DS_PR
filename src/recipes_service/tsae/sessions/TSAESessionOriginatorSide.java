@@ -114,6 +114,7 @@ public class TSAESessionOriginatorSide extends TimerTask {
 			 */
 			synchronized (serverData) {
 				localSummary = serverData.getSummary().clone();
+				localAck = this.serverData.getAck().clone();
 			}
 
 			/**
@@ -200,19 +201,20 @@ public class TSAESessionOriginatorSide extends TimerTask {
 						}
 
 						serverData.getSummary().updateMax(aeRequestMsg.getSummary());
+						serverData.getAck().updateMax(aeRequestMsg.getAck());
+						serverData.getLog().purgeLog(serverData.getAck());
 					}
 				}
 			}
 			socket.close();
 		} catch (ClassNotFoundException e) {
-			// lsim.log(Level.FATAL, "[TSAESessionOriginatorSide] [session: " +
-			// current_session_number + "]" + e.getMessage());
+			lsim.log(Level.FATAL,
+					"[TSAESessionOriginatorSide] [session: " + current_session_number + "]" + e.getMessage());
 			e.printStackTrace();
 			System.exit(1);
 		} catch (IOException e) {
 		}
 
-		// lsim.log(Level.TRACE, "[TSAESessionOriginatorSide] [session: " +
-		// current_session_number + "] End TSAE session");
+		lsim.log(Level.TRACE, "[TSAESessionOriginatorSide] [session: " + current_session_number + "] End TSAE session");
 	}
 }

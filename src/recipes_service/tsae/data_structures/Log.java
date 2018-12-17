@@ -25,6 +25,7 @@ import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 //LSim logging system imports sgeag@2017
@@ -116,7 +117,7 @@ public class Log implements Serializable {
 			Timestamp lasHostTimestampOnSum = sum.getLast(node);
 
 			for (Operation op : ops) {
-				if (op.getTimestamp().compare(lasHostTimestampOnSum) > 1) {
+				if (op.getTimestamp().compare(lasHostTimestampOnSum) > 0) {
 					nonAddedOps.add(op);
 				}
 			}
@@ -131,7 +132,39 @@ public class Log implements Serializable {
 	 * 
 	 * @param ack: ackSummary.
 	 */
+	/**
+	 * Removes from the log the operations that have been acknowledged by all the
+	 * members of the group, according to the provided ackSummary.
+	 * 
+	 * @param ack: ackSummary.
+	 */
 	public void purgeLog(TimestampMatrix ack) {
+		TimestampVector minTimestampVector = ack.minTimestampVector();
+
+		/**
+		 * Go through all entries in the log map.
+		 */
+		for (Map.Entry<String, List<Operation>> entry : log.entrySet()) {
+			String participant = entry.getKey();
+			List<Operation> operations = entry.getValue();
+			Timestamp lastTimestamp = minTimestampVector.getLast(participant);
+
+			if (lastTimestamp == null) {
+				continue;
+			}
+
+			/**
+			 * Go from back to front through all the operations and delete those, which are
+			 * older than the latest received Timestamp.
+			 */
+			for (int i = operations.size() - 1; i >= 0; i--) {
+				Operation op = operations.get(i);
+
+				if (op.getTimestamp().compare(lastTimestamp) < 0) {
+					operations.remove(i);
+				}
+			}
+		}
 	}
 
 	/**
