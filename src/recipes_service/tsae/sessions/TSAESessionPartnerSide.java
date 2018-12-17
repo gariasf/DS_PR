@@ -146,15 +146,11 @@ public class TSAESessionPartnerSide extends Thread {
 					 */
 					synchronized (serverData) {
 						for (MessageOperation op : operations) {
-							AddOperation opEl = (AddOperation) op.getOperation();
-							OperationType opType = opEl.getType();
-							if (opType == OperationType.ADD) {
-								if (localLog.add(opEl)) {
-									Recipe recipe = opEl.getRecipe();
-									serverData.getRecipes().add(recipe);
-								}
+							if (op.getOperation().getType() == OperationType.ADD) {
+								serverData.execOperation((AddOperation) op.getOperation());
+							} else {
+								serverData.execOperation((RemoveOperation) op.getOperation());
 							}
-
 						}
 
 						serverData.getSummary().updateMax(aeRequestMsg.getSummary());
@@ -162,11 +158,7 @@ public class TSAESessionPartnerSide extends Thread {
 						serverData.getLog().purgeLog(serverData.getAck());
 					}
 
-					msg.setSessionNumber(current_session_number);
-					lsim.log(Level.TRACE,
-							"[TSAESessionPartnerSide] [session: " + current_session_number + "] sent message: " + msg);
 				}
-
 			}
 			socket.close();
 		} catch (ClassNotFoundException e) {

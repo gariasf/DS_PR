@@ -41,7 +41,7 @@ import communication.ObjectOutputStream_DS;
 
 import recipes_service.data.AddOperation;
 import recipes_service.data.OperationType;
-import recipes_service.data.Recipe;
+import recipes_service.data.RemoveOperation;
 import recipes_service.tsae.data_structures.*;
 
 //LSim logging system imports sgeag@2017
@@ -190,19 +190,18 @@ public class TSAESessionOriginatorSide extends TimerTask {
 					 */
 					synchronized (serverData) {
 						for (MessageOperation op : operations) {
-							AddOperation opEl = (AddOperation) op.getOperation();
-							OperationType opType = opEl.getType();
-							if (opType == OperationType.ADD) {
-								if (localLog.add(opEl)) {
-									Recipe recipe = opEl.getRecipe();
-									serverData.getRecipes().add(recipe);
-								}
+							if (op.getOperation().getType() == OperationType.ADD) {
+								serverData.execOperation((AddOperation) op.getOperation());
+							} else {
+								serverData.execOperation((RemoveOperation) op.getOperation());
 							}
 						}
 
+						// updated summary and ACK
 						serverData.getSummary().updateMax(aeRequestMsg.getSummary());
 						serverData.getAck().updateMax(aeRequestMsg.getAck());
 						serverData.getLog().purgeLog(serverData.getAck());
+
 					}
 				}
 			}
