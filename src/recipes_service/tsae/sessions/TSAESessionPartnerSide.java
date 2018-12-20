@@ -72,10 +72,6 @@ public class TSAESessionPartnerSide extends Thread {
 			lsim.log(Level.TRACE,
 					"[TSAESessionPartnerSide] [session: " + current_session_number + "] received message: " + msg);
 			if (msg.type() == MsgType.AE_REQUEST) {
-				MessageAErequest aeRequestMsg = (MessageAErequest) msg;
-				TimestampVector partnerSummary = aeRequestMsg.getSummary();
-				Log localLog = serverData.getLog();
-				List<Operation> newOperations = localLog.listNewer(partnerSummary);
 
 				TimestampVector localSummary = null;
 				TimestampMatrix localAck = null;
@@ -86,9 +82,14 @@ public class TSAESessionPartnerSide extends Thread {
 				 */
 				synchronized (serverData) {
 					localSummary = serverData.getSummary().clone();
+					serverData.getAck().update(serverData.getId(), localSummary);
 					localAck = serverData.getAck().clone();
-
 				}
+
+				MessageAErequest aeRequestMsg = (MessageAErequest) msg;
+				TimestampVector partnerSummary = aeRequestMsg.getSummary();
+				Log localLog = serverData.getLog();
+				List<Operation> newOperations = localLog.listNewer(partnerSummary);
 
 				/**
 				 * Send local operations that the partner hasn't acknowledged yet (acording to
@@ -158,7 +159,11 @@ public class TSAESessionPartnerSide extends Thread {
 						serverData.getLog().purgeLog(serverData.getAck());
 					}
 
+					msg.setSessionNumber(current_session_number);
+					lsim.log(Level.TRACE,
+							"[TSAESessionPartnerSide] [session: " + current_session_number + "] sent message: " + msg);
 				}
+
 			}
 			socket.close();
 		} catch (ClassNotFoundException e) {

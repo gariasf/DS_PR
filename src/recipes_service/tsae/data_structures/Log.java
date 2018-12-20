@@ -25,7 +25,7 @@ import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 //LSim logging system imports sgeag@2017
@@ -72,19 +72,16 @@ public class Log implements Serializable {
 		 * Getting the hostId and current timestamp to search the last submitted
 		 * operation in order to then check whether the new operation is newer or not
 		 */
-		String hostId = op.getTimestamp().getHostid();
-		Timestamp lastTimestamp = this.getLastTimestamp(hostId);
-		long timestampDifference = op.getTimestamp().compare(lastTimestamp);
+		Timestamp timestamp = op.getTimestamp();
+		String hostId = timestamp.getHostid();
 
-		/**
-		 * Check if the inserted Operation is the next to follow. If yes, insert it and
-		 * return true so it can be purged eventually later, otherwise return false so
-		 * that it is kept for later.
-		 */
+		Timestamp lastTimestamp = this.getLastTimestamp(hostId);
+
+		long timestampDifference = op.getTimestamp().compare(lastTimestamp);
 
 		if ((lastTimestamp == null && timestampDifference == 0)
 				|| (lastTimestamp != null && timestampDifference == 1)) {
-			log.get(hostId).add(op);
+			this.log.get(hostId).add(op);
 			return true;
 		} else {
 			return false;
@@ -112,8 +109,8 @@ public class Log implements Serializable {
 		 * be added to the nonAdded list.
 		 */
 
-		for (String node : log.keySet()) {
-			List<Operation> ops = log.get(node);
+		for (String node : this.log.keySet()) {
+			List<Operation> ops = this.log.get(node);
 			Timestamp lasHostTimestampOnSum = sum.getLast(node);
 
 			for (Operation op : ops) {
@@ -132,19 +129,10 @@ public class Log implements Serializable {
 	 * 
 	 * @param ack: ackSummary.
 	 */
-	/**
-	 * Removes from the log the operations that have been acknowledged by all the
-	 * members of the group, according to the provided ackSummary.
-	 * 
-	 * @param ack: ackSummary.
-	 */
 	public void purgeLog(TimestampMatrix ack) {
 		TimestampVector minTimestampVector = ack.minTimestampVector();
 
-		/**
-		 * Go through all entries in the log map.
-		 */
-		for (Map.Entry<String, List<Operation>> entry : log.entrySet()) {
+		for (Entry<String, List<Operation>> entry : log.entrySet()) {
 			String participant = entry.getKey();
 			List<Operation> operations = entry.getValue();
 			Timestamp lastTimestamp = minTimestampVector.getLast(participant);
@@ -153,10 +141,6 @@ public class Log implements Serializable {
 				continue;
 			}
 
-			/**
-			 * Go from back to front through all the operations and delete those, which are
-			 * older than the latest received Timestamp.
-			 */
 			for (int i = operations.size() - 1; i >= 0; i--) {
 				Operation op = operations.get(i);
 
@@ -172,32 +156,26 @@ public class Log implements Serializable {
 	 */
 	@Override
 	public synchronized boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+			// } else if (this == obj) {
+			// return true;
+		} else if (!(obj instanceof Log)) {
 			return false;
+		}
 
 		Log other = (Log) obj;
-		if (log == null) {
-			return other.log == null;
-		} else {
-			if (log.size() != other.log.size()) {
-				return false;
-			}
-			boolean equal = true;
-			for (Iterator<String> it = log.keySet().iterator(); it.hasNext() && equal;) {
-				String hostName = it.next();
-				equal = log.get(hostName).equals(other.log.get(hostName));
-			}
 
-			return equal;
+		if (!other.log.equals(this.log)) {
+			return false;
+
+		} else {
+			return this.log.equals(other.log);
 		}
 	}
 
 	private Timestamp getLastTimestamp(String hostId) {
-		List<Operation> operations = log.get(hostId);
+		List<Operation> operations = this.log.get(hostId);
 
 		if (operations == null || operations.isEmpty()) {
 			return null;

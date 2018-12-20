@@ -166,6 +166,10 @@ public class ServerData {
 		this.recipes.remove(recipeTitle);
 	}
 
+	/**
+	 * When an operation is retrieved from a different peer, it is executed by (in
+	 * this case) adding the recipe and remembering the operation in the log.
+	 */
 	public synchronized void execOperation(AddOperation addOp) {
 		if (this.log.add(addOp)) {
 			this.recipes.add(addOp.getRecipe());

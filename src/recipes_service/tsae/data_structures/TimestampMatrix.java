@@ -30,6 +30,7 @@ import java.util.concurrent.ConcurrentHashMap;
 //LSim logging system imports sgeag@2017
 import edu.uoc.dpcs.lsim.LSimFactory;
 import lsim.worker.LSimWorker;
+import edu.uoc.dpcs.lsim.logger.LoggerManager.Level;
 
 /**
  * @author Joan-Manuel Marques, Daniel Lázaro Iglesias December 2012
@@ -57,7 +58,8 @@ public class TimestampMatrix implements Serializable {
 	 */
 	TimestampVector getTimestampVector(String node) {
 
-		return this.timestampMatrix.get(node);
+		// return generated automatically. Remove it when implementing your solution
+		return null;
 	}
 
 	/**
@@ -65,8 +67,7 @@ public class TimestampMatrix implements Serializable {
 	 * 
 	 * @param tsMatrix
 	 */
-	public synchronized void updateMax(TimestampMatrix tsMatrix) {
-
+	public void updateMax(TimestampMatrix tsMatrix) {
 		for (Map.Entry<String, TimestampVector> entry : tsMatrix.timestampMatrix.entrySet()) {
 			String key = entry.getKey();
 			TimestampVector otherValue = entry.getValue();
@@ -76,12 +77,11 @@ public class TimestampMatrix implements Serializable {
 				thisValue.updateMax(otherValue);
 			}
 		}
-
 	}
 
 	/**
 	 * substitutes current timestamp vector of node for tsVector
-	 *
+	 * 
 	 * @param node
 	 * @param tsVector
 	 */
@@ -95,15 +95,16 @@ public class TimestampMatrix implements Serializable {
 	 *         all participants
 	 */
 	public TimestampVector minTimestampVector() {
-		TimestampVector ret = null;
+		TimestampVector minTsV = null;
 
 		for (TimestampVector matrixVector : this.timestampMatrix.values()) {
-			if (ret == null)
-				ret = matrixVector.clone();
+			if (minTsV == null)
+				minTsV = matrixVector.clone();
 			else
-				ret.mergeMin(matrixVector);
+				minTsV.mergeMin(matrixVector);
 		}
-		return ret;
+
+		return minTsV;
 	}
 
 	/**
@@ -112,7 +113,8 @@ public class TimestampMatrix implements Serializable {
 	private TimestampMatrix() {
 	}
 
-	public synchronized TimestampMatrix clone() {
+	public TimestampMatrix clone() {
+
 		TimestampMatrix clonedMatrix = new TimestampMatrix();
 
 		for (Map.Entry<String, TimestampVector> entry : timestampMatrix.entrySet()) {
@@ -130,22 +132,22 @@ public class TimestampMatrix implements Serializable {
 	public boolean equals(Object obj) {
 
 		if (obj == null) {
-			// System.out.println("Es nulo TSM");
 			return false;
 		} else if (this == obj) {
-			// System.out.println("No es nulo y es objeto TSM");
 			return true;
-		} else if ((obj instanceof TimestampMatrix)) {
-
-			TimestampMatrix other = (TimestampMatrix) obj;
-
-			for (String name : this.timestampMatrix.keySet()) {
-
-				return this.timestampMatrix.get(name).equals(other.timestampMatrix.get(name));
-			}
-
+		} else if (!(obj instanceof TimestampMatrix)) {
+			return false;
 		}
-		return false;
+
+		TimestampMatrix other = (TimestampMatrix) obj;
+
+		if (this.timestampMatrix == other.timestampMatrix) {
+			return true;
+		} else if (this.timestampMatrix == null || other.timestampMatrix == null) {
+			return false;
+		} else {
+			return this.timestampMatrix.equals(other.timestampMatrix);
+		}
 
 	}
 

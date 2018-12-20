@@ -6,130 +6,91 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Debug (Launch)",
+            "name": "Debug (Launch) - Current File",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
-            "mainClass": "",
-            "args": ""
+            "mainClass": "${file}"
         },
         {
             "type": "java",
-            "name": "Debug (Launch)-LSimTester<2018t_SD--students>",
+            "name": "Debug (Launch)-LSimTester<DSLAB PR 2>",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
             "mainClass": "lsim.test.LSimTester",
-            "args": "",
-            "projectName": "2018t_SD--students"
+            "projectName": "DSLAB PR 2"
         },
         {
             "type": "java",
-            "name": "Debug (Launch)-TestHerancy<2018t_SD--students>",
+            "name": "Debug (Launch)-TestHerancy<DSLAB PR 2>",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
             "mainClass": "lsim.test.TestHerancy",
-            "args": "",
-            "projectName": "2018t_SD--students"
+            "projectName": "DSLAB PR 2"
         },
         {
             "type": "java",
-            "name": "Debug (Launch)-Timer<2018t_SD--students>",
+            "name": "Debug (Launch)-Timer<DSLAB PR 2>",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
             "mainClass": "lsim.utils.Timer",
-            "args": "",
-            "projectName": "2018t_SD--students"
+            "projectName": "DSLAB PR 2"
         },
         {
             "type": "java",
-            "name": "Debug (Launch)-LSimWorker<2018t_SD--students>",
+            "name": "Debug (Launch)-LSimWorker<DSLAB PR 2>",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
             "mainClass": "lsim.worker.LSimWorker",
-            "args": "",
-            "projectName": "2018t_SD--students"
+            "projectName": "DSLAB PR 2"
         },
         {
             "type": "java",
-            "name": "Debug (Launch)-Phase1<2018t_SD--students>",
+            "name": "Debug (Launch)-Phase1<DSLAB PR 2>",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
             "mainClass": "recipes_service.Phase1",
-            "args": "",
-            "projectName": "2018t_SD--students"
+            "projectName": "DSLAB PR 2"
         },
         {
             "type": "java",
-            "name": "Debug (Launch)-Server<2018t_SD--students>",
+            "name": "Debug (Launch)-Server<DSLAB PR 2>",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
             "mainClass": "recipes_service.Server",
-            "args": "",
-            "projectName": "2018t_SD--students"
+            "projectName": "DSLAB PR 2"
         },
         {
             "type": "java",
-            "name": "Debug (Launch)-Phase1TestServer<2018t_SD--students>",
+            "name": "Debug (Launch)-Phase1TestServer<DSLAB PR 2>",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
             "mainClass": "recipes_service.test.Phase1TestServer",
-            "args": "",
-            "projectName": "2018t_SD--students"
+            "projectName": "DSLAB PR 2"
         },
         {
             "type": "java",
-            "name": "Debug (Launch)-SendArgsToTestServer<2018t_SD--students>",
+            "name": "Debug (Launch)-SendArgsToTestServer<DSLAB PR 2>",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
             "mainClass": "recipes_service.test.SendArgsToTestServer",
-            "args": "",
-            "projectName": "2018t_SD--students"
+            "projectName": "DSLAB PR 2"
         },
         {
             "type": "java",
-            "name": "Debug (Launch)-TestServer<2018t_SD--students>",
+            "name": "Debug (Launch)-TestServer<DSLAB PR 2>",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
             "mainClass": "recipes_service.test.TestServer",
-            "args": "",
-            "projectName": "2018t_SD--students"
+            "projectName": "DSLAB PR 2"
         },
         {
             "type": "java",
-            "name": "Debug (Launch)-test_storage<2018t_SD--students>",
+            "name": "Debug (Launch)-test_storage<DSLAB PR 2>",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
             "mainClass": "storage.test_storage",
-            "args": "",
-            "projectName": "2018t_SD--students"
+            "projectName": "DSLAB PR 2"
         },
         {
             "type": "java",
-            "name": "Debug (Attach)",
-            "request": "attach",
-            "hostName": "localhost",
-            "port": "<debug port of remote debuggee>"
+            "name": "Debug (Launch)-Phase1",
+            "request": "launch",
+            "mainClass": "recipes_service.Phase1"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Server",
+            "request": "launch",
+            "mainClass": "recipes_service.Server"
         }
     ]
 }

@@ -21,6 +21,7 @@
 package recipes_service.tsae.data_structures;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
@@ -70,7 +71,9 @@ public class TimestampVector implements Serializable {
 	public synchronized void updateTimestamp(Timestamp timestamp) {
 		lsim.log(Level.TRACE, "Updating the TimestampVectorInserting with the timestamp: " + timestamp);
 
-		this.timestampVector.replace(timestamp.getHostid(), timestamp);
+		if (timestamp != null) {
+			this.timestampVector.replace(timestamp.getHostid(), timestamp);
+		}
 	}
 
 	/**
@@ -106,12 +109,25 @@ public class TimestampVector implements Serializable {
 	/**
 	 * merges local timestamp vector with tsVector timestamp vector taking the
 	 * smallest timestamp for each node. After merging, local node will have the
-	 * smallest timestamp for each node.
 	 * 
 	 * @param tsVector (timestamp vector)
 	 */
 	public void mergeMin(TimestampVector tsVector) {
-		return;
+		if (tsVector == null) {
+			return;
+		}
+
+		for (Map.Entry<String, Timestamp> entry : tsVector.timestampVector.entrySet()) {
+			String node = entry.getKey();
+			Timestamp otherTimestamp = entry.getValue();
+			Timestamp thisTimestamp = this.getLast(node);
+
+			if (thisTimestamp == null) {
+				this.timestampVector.put(node, otherTimestamp);
+			} else if (otherTimestamp.compare(thisTimestamp) < 0) {
+				this.timestampVector.replace(node, otherTimestamp);
+			}
+		}
 	}
 
 	/**
@@ -119,7 +135,15 @@ public class TimestampVector implements Serializable {
 	 */
 
 	public synchronized TimestampVector clone() {
-		return new TimestampVector(this.timestampVector);
+		String[] participants = timestampVector.keySet().toArray(new String[timestampVector.keySet().size()]);
+		TimestampVector timeclone = new TimestampVector(Arrays.asList(participants));
+
+		for (String node : this.timestampVector.keySet()) {
+			Timestamp thisTimestamp = this.getLast(node);
+			timeclone.updateTimestamp(thisTimestamp);
+		}
+
+		return timeclone;
 	}
 
 	public synchronized boolean equals(Object vector) {
@@ -138,13 +162,19 @@ public class TimestampVector implements Serializable {
 	 * equals
 	 */
 	public boolean equals(TimestampVector otherVector) {
-		if (this.timestampVector == otherVector.timestampVector) {
-			return true;
-		} else if (this.timestampVector == null || otherVector.timestampVector == null) {
+		if (otherVector == null) {
 			return false;
-		} else {
-			return this.timestampVector.equals(otherVector.timestampVector);
+		} else if (!(otherVector instanceof TimestampVector)) {
+			return false;
 		}
+
+		TimestampVector other = (TimestampVector) otherVector;
+
+		if (!other.timestampVector.equals(this.timestampVector)) {
+			return false;
+		}
+
+		return this.timestampVector.equals(other.timestampVector);
 	}
 
 	/**

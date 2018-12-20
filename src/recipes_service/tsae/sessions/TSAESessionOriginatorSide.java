@@ -41,6 +41,7 @@ import communication.ObjectOutputStream_DS;
 
 import recipes_service.data.AddOperation;
 import recipes_service.data.OperationType;
+import recipes_service.data.Recipe;
 import recipes_service.data.RemoveOperation;
 import recipes_service.tsae.data_structures.*;
 
@@ -109,12 +110,12 @@ public class TSAESessionOriginatorSide extends TimerTask {
 			TimestampMatrix localAck = null;
 
 			/**
-			 * Store local summary and ack. This needs to be synchronized because we must
-			 * ensure that nothing is modified in the meantime
+			 * Store local summary and ack. This needs to be synchronized
 			 */
 			synchronized (serverData) {
 				localSummary = serverData.getSummary().clone();
-				localAck = this.serverData.getAck().clone();
+				serverData.getAck().update(serverData.getId(), localSummary);
+				localAck = serverData.getAck().clone();
 			}
 
 			/**
@@ -197,11 +198,9 @@ public class TSAESessionOriginatorSide extends TimerTask {
 							}
 						}
 
-						// updated summary and ACK
 						serverData.getSummary().updateMax(aeRequestMsg.getSummary());
 						serverData.getAck().updateMax(aeRequestMsg.getAck());
 						serverData.getLog().purgeLog(serverData.getAck());
-
 					}
 				}
 			}

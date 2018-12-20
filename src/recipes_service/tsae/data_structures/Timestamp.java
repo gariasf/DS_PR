@@ -19,57 +19,54 @@
 */
 
 package recipes_service.tsae.data_structures;
-
 import java.io.Serializable;
 
 /**
- * @author Joan-Manuel Marques, Daniel Lázaro Iglesias December 2012
+ * @author Joan-Manuel Marques, Daniel Lázaro Iglesias
+ * December 2012
  *
  */
-public class Timestamp implements Serializable {
+public class Timestamp implements Serializable{
 	public static final long NULL_TIMESTAMP_SEQ_NUMBER = -1000;
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 4178027349883987517L;
 	/**
-	 * This class represents the timestamp of an operation. Contains the node that
-	 * issued the operation, and the sequence number of the operation, relative to
-	 * other operations issued by that node.
+	 * This class represents the timestamp of an operation.
+	 * Contains the node that issued the operation, and
+	 * the sequence number of the operation, relative
+	 * to other operations issued by that node.
 	 */
-
+	
 	private String hostid;
 	private long seqnumber;
-
-	public Timestamp(String nodeid, long seqnumber) {
+	
+	public Timestamp(String nodeid, long seqnumber){
 		this.hostid = nodeid;
 		this.seqnumber = seqnumber;
 	}
-
 	public String getHostid() {
 		return hostid;
 	}
-
-	public boolean isNullTimestamp() {
+	
+	public boolean isNullTimestamp(){
 		return seqnumber < 0;
 	}
-
 	/**
 	 * Compares this timestamp to another one
-	 * 
 	 * @param t: timestamp to compare
-	 * @return The result of subtracting current sequence number and t sequence
-	 *         number. This will result in a positive number if this is newer than
-	 *         t, a negative number if this is older than t, and 0 if this and t are
-	 *         equal.
+	 * @return The result of subtracting current sequence number and t sequence number. 
+	 * This will result in a positive number if this is newer than t, a negative number 
+	 * if this is older than t, and 0 if this and t are equal.
 	 */
-	public long compare(Timestamp t) {
-		if (t == null) {
+	public long compare(Timestamp t){
+		if(t==null){
 			return seqnumber;
 		}
-		return seqnumber - t.seqnumber;
+		return seqnumber-t.seqnumber;
 	}
-
+	
 	/**
 	 * equals
 	 */
@@ -91,12 +88,12 @@ public class Timestamp implements Serializable {
 			return false;
 		return true;
 	}
-
+	
 	/**
 	 * toString
 	 */
-	public String toString() {
-		return hostid + ":   " + seqnumber;
+	public String toString(){
+		return hostid+":   "+seqnumber;
 	}
-
+	
 }
